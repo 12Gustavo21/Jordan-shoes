@@ -3,6 +3,7 @@
 > Status :  Finished project ✅ / Open PR
 
 ## Challenge [02] Codelândia - Iuri Silva
+>Look the design: https://www.figma.com/file/Yb9IBH56g7T1hdIyZ3BMNO
 
 <img width ='900px' src ='./src/assets/gifs/Recording.gif' />
 
