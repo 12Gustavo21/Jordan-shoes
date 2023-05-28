@@ -73,38 +73,38 @@ export default function App() {
           </S.Announcement>
         </S.Banner>
       </S.Header>
-      <main>
-        <section>
+      <S.Main>
+        <S.TextBox>
           <h3>Destques</h3>
           <p>Frete grátis e chinelo de brinde é aqui, aproveite por tempo limitado.</p>
-        </section>
+        </S.TextBox>
         <section>
-          <figure>
-            <section>
+          <S.Gallery>
+            <S.GalleryItem>
               {
                 gallery.slice(0, 4).map((item, index) => (
                   (
-                    <section>
-                      <img src={item.img} alt={item.alt} key={index} />
-                    </section>
+                    <S.ShoeBox>
+                      <S.Shoe src={item.img} alt={item.alt} key={index} />
+                    </S.ShoeBox>
                   )
                 ))
               }
-            </section>
-            <section>
+            </S.GalleryItem>
+            <S.GalleryItem>
               {
                 gallery.slice(4, 8).map((item, index) => (
                   (
-                    <section> 
-                      <img src={item.img} alt={item.alt} key={index} />
-                    </section>
+                    <S.ShoeBox>
+                      <S.Shoe src={item.img} alt={item.alt} key={index} />
+                    </S.ShoeBox>
                   )
                 ))
               }
-            </section>
-          </figure>
+            </S.GalleryItem>
+          </S.Gallery>
         </section>
-      </main>
+      </S.Main>
       <footer>
         <section>
           <p>Copyright © {getCurrentYear()}<a href="https://www.instagram.com/iuricode/" target="_blank"
