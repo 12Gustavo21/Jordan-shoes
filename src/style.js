@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import Background from './img/wallpaper.webp';
+import Background from './assets/img/wallpaper.webp';
 
 export const Header = styled.header`
     width: 100%;
@@ -91,14 +91,7 @@ export const Announcement = styled.section`
 export const Main = styled.main`
     width: 100%;
     min-height: 100vh;
-
-    @media only screen and (688px <= width <= 1360px){
-        min-height: 180vh;
-    }
-
-    @media only screen and (320px <= width <= 687px) {
-        min-height: 250vh;
-    }
+    margin-bottom: 2rem;
 `;
 
 export const TextBox = styled.section`
@@ -130,16 +123,20 @@ export const Gallery = styled.figure`
     display: flex;
     flex-direction: column;
     padding: 1rem;
+
+    @media only screen and (width <= 1410px) {
+        gap: 2rem;
+    }
 `;
 
 export const GalleryItem = styled.section`
     width: 100%;
-    height: 40vh;
+    min-height: 40vh;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-wrap: wrap;
-    gap: 1rem;
+    gap: 2rem;
 `;
 
 export const ShoeBox = styled.section`
@@ -155,12 +152,56 @@ export const ShoeBox = styled.section`
         filter: saturate(2);
     }
 
-    @media only screen and (1024px <= width <= 1360px) {
-        flex-basis: calc(100% / 2 - 10rem);
+    @media only screen and (width <= 1410px) {
+        width: 30rem;
     }
 `;
 
 export const Shoe = styled.img`
     width: 75%;
     transition: .5s all ease;
+
+    &:hover {
+        transform: scale(1.1) !important;
+    }
+`;
+
+export const Footer = styled.footer`
+    width: 100%;
+    height: 10vh;
+    background-color: #181818;
+    display: grid;
+    place-items: center;
+    padding-right: 8rem;
+    font: 400 1.5em 'Montserrat', sans-serif;
+    text-align: center;
+    color: #F3F5F7;
+
+    a {
+        color: #F3F5F7;
+        text-decoration: none;
+        position: absolute;
+        padding-left: .5rem;
+    }
+
+    a::after {
+        position: relative;
+        display: block;
+        content: "";
+        border-bottom: #F3F5F7 0.125rem solid;
+        border-radius: 0.125rem;
+        transform: scaleX(0.1);
+        transform-origin: center;
+        transition: transform 300ms ease-in-out;
+    }
+
+    a:hover::after {
+        transform: scaleX(1);
+    }
+
+    @media only screen and (width <= 425px) {
+        padding: 0 1rem;
+        font-size: 1.2rem;
+        justify-items: flex-start;
+    }
 `;
