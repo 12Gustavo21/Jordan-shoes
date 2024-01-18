@@ -5,14 +5,13 @@ import { GlobalStyle } from "./global/style";
 import * as S from "./style";
 
 // Images
-import JordanOne from "./assets/img/air-jordan-green.svg";
-import JordanTwo from "./assets/img/air-jordan-tropical.svg";
-import JordanThree from "./assets/img/air-jordan-retro-purple.svg";
-import JordanFour from "./assets/img/air-jordan-smoke-grey.svg";
-import JordanFive from "./assets/img/air-jordan-black-red.svg";
-import JordanSix from "./assets/img/air-jordan-citrus.svg";
-import JordanSeven from "./assets/img/air-jordan-grey.svg";
-import JordanEight from "./assets/img/air-jordan-carbon-fiber.svg";
+import JordanOne from "./img/air-jordan-green.svg";
+import JordanTwo from "./img/air-jordan-tropical.svg";
+import JordanThree from "./img/air-jordan-retro-purple.svg";
+import JordanFour from "./img/air-jordan-smoke-grey.svg";
+import JordanFive from "./img/air-jordan-citrus.svg";
+import JordanSix from "./img/air-jordan-grey.svg";
+import JordanLogo from "./img/logo-jordan.svg";
 
 //Components
 import ScrollToTopButton from "./components/ScrollToTopButton";
@@ -22,38 +21,48 @@ import AOS from "aos";
 import "aos/dist/aos.css";
 
 export default function App() {
-  const gallery = [
+  const itens = [
     {
       img: JordanOne,
-      alt: "Jordan green",
+      alt: "Jordan One",
+      title: "Air Jordan 1 Mid Dutch Green",
+      type: "Tênis Air Jordan",
+      price: "R$ 1.199,99",
     },
     {
       img: JordanTwo,
-      alt: "Jordan purple",
+      alt: "Jordan Two",
+      title: "Air Jordan 1 High Zoom CMFT Tropical Twist",
+      type: "Tênis Air Jordan",
+      price: "R$ 1.049,00",
     },
     {
       img: JordanThree,
-      alt: "Jordan white and purple",
+      alt: "Jordan Three",
+      title: "Air Jordan 1 Retro High OG Court Purple",
+      type: "Tênis Air Jordan",
+      price: "R$ 1.350,00",
     },
     {
       img: JordanFour,
-      alt: "Jordan gray",
+      alt: "Jordan Four",
+      title: "Air Jordan 1 Mid GS Light Smoke Grey",
+      type: "Tênis Air Jordan",
+      price: "R$ 1.585,00",
     },
     {
       img: JordanFive,
-      alt: "Jordan black and red",
+      alt: "Jordan Five",
+      title: "Air Jordan 1 Mid SE Bright Citrus",
+      type: "Tênis Air Jordan",
+      price: "R$ 949,99",
     },
     {
       img: JordanSix,
-      alt: "Jordan orange",
-    },
-    {
-      img: JordanSeven,
-      alt: "Jordan white",
-    },
-    {
-      img: JordanEight,
-      alt: "Jordan tradicional",
+      alt: "Jordan Six",
+      title: "Air Jordan 1 Mid Grey Camo",
+      type: "Tênis Air Jordan",
+      price: "R$ 999,99",
     },
   ];
 
@@ -71,17 +80,18 @@ export default function App() {
       <GlobalStyle />
       <S.Header>
         <S.Discount>
-          <p>Ganhe R$ 10,00 de desconto no frete</p>
+          <h3>Frete grátis para todo o Brasil</h3>
         </S.Discount>
-        <S.LogoBox>
-          <h1>JordanShoes</h1>
-        </S.LogoBox>
         <S.Banner>
           <S.Announcement>
+            <S.LogoBox>
+              <img src={JordanLogo} alt="Jordan logo" />
+              <h1>JordanShoes</h1>
+            </S.LogoBox>
             <h2>A melhor loja de Jordan</h2>
             <p>
-              <span>O tênis Jordan é fruto de uma velha e forte parceria </span>{" "}
-              entre a Nike e o jogador Michael Jordan.
+              O tênis Jordan é fruto de uma velha e forte parceria entre a Nike
+              e o jogador Michael Jordan.
             </p>
           </S.Announcement>
         </S.Banner>
@@ -89,44 +99,50 @@ export default function App() {
       <S.Main>
         <ScrollToTopButton />
         <S.TextBox>
-          <h3>Destques</h3>
+          <h4>Os melhores em só lugar</h4>
           <p>
-            Frete grátis e chinelo de brinde é aqui, aproveite por tempo
-            limitado.
+            A marca Jordan na JordanShoes é a escolha certa para os amantes de
+            sneakers que buscam estilo e conforto.
           </p>
         </S.TextBox>
         <section>
           <S.Gallery>
             <S.GalleryItem>
-              {gallery.slice(0, 4).map((item, index) => (
-                <S.ShoeBox
+              {itens.slice(0, 3).map((item, index) => (
+                <S.Item
+                  key={index}
                   data-aos="fade-up"
                   data-aos-anchor-placement="center-bottom"
                   data-aos-duration="1500"
                 >
-                  <S.Shoe
-                    src={item.img}
-                    alt={item.alt}
-                    key={index}
-                    title={item.alt}
-                  />
-                </S.ShoeBox>
+                  <S.ShoeBox>
+                    <S.Shoe src={item.img} alt={item.alt} title={item.alt} />
+                  </S.ShoeBox>
+                  <S.ItemInfo>
+                    <S.ItemTitle>{item.title}</S.ItemTitle>
+                    <S.ItemType>{item.type}</S.ItemType>
+                    <S.ItemPrice>{item.price}</S.ItemPrice>
+                  </S.ItemInfo>
+                </S.Item>
               ))}
             </S.GalleryItem>
             <S.GalleryItem>
-              {gallery.slice(4, 8).map((item, index) => (
-                <S.ShoeBox
+              {itens.slice(3, 6).map((item, index) => (
+                <S.Item
+                  key={index}
                   data-aos="fade-up"
                   data-aos-anchor-placement="center-bottom"
-                  data-aos-duration="1700"
+                  data-aos-duration="1500"
                 >
-                  <S.Shoe
-                    src={item.img}
-                    alt={item.alt}
-                    key={index}
-                    title={item.alt}
-                  />
-                </S.ShoeBox>
+                  <S.ShoeBox>
+                    <S.Shoe src={item.img} alt={item.alt} title={item.alt} />
+                  </S.ShoeBox>
+                  <S.ItemInfo>
+                    <S.ItemTitle>{item.title}</S.ItemTitle>
+                    <S.ItemType>{item.type}</S.ItemType>
+                    <S.ItemPrice>{item.price}</S.ItemPrice>
+                  </S.ItemInfo>
+                </S.Item>
               ))}
             </S.GalleryItem>
           </S.Gallery>
